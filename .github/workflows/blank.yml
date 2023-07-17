@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
-
-run-name: Deploy to ${{ inputs.deploy }} ${{ inputs.rollback }}
+name: Deploy 
+run-name: ${{ inputs.rollback }}
 
 # Controls when the workflow will run
 on:
@@ -9,10 +9,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-      deploy: 
-        type: string
-        required: false
-        default: 'deploy1'
       rollback: 
         type: string
         required: false
@@ -22,7 +18,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   deploy:
-    if: ${{ inputs.deploy == 'true' }}
+    if: ${{ inputs.rollback != 'true' }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
