@@ -18,13 +18,9 @@ on:
         options: 
         - Deploy
         - Rollback
-      message:
-        required: true
-      use-emoji:
-        type: boolean
-        description: Include 🎉🤣 emojis
       environment:
         type: environment
+        
 
         
 
