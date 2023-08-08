@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
-name: Deploy 
-run-name: deploy or ${{ inputs.name }}
+name: Deploy MS 
+run-name: ${{ inputs.name }}
 
 # Controls when the workflow will run
 on:
@@ -16,7 +16,6 @@ on:
       name:
         type: choice
         options: 
-        - Deploy
         - Rollback
       environment:
         type: environment
@@ -37,7 +36,7 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, deploy!
+        run: echo Hello, ${{ vars.ENV2 }}!
         
   rollback:
     name: My 2 job
@@ -47,4 +46,4 @@ jobs:
     steps:
       # Runs a set of commands using the runners shell
       - name: Run a one-line script
-        run: echo Hello, rollback!
+        run: echo Hello, ${{ secrets.ENV }}!
