@@ -20,7 +20,11 @@ on:
         - Rollback
       environment:
         type: environment
-
+        
+env:
+  # Setting an environment variable with the value of a configuration variable
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -34,7 +38,9 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, '${{ vars.VAR }}' !
+        run: |
+          echo "variable from shell environment : $env_var"
+          
         
   rollback:
     name: My 2 job
@@ -47,16 +53,12 @@ jobs:
         run: |
           echo Hello, rollback
 
-  test:
-    name: tets
-    if: ${{ vars.Q == 'true' }}
-    # The type of runner that the job will run on
+  display-variables:
+    name: ${{ vars.JOB_NAME }}
     runs-on: ubuntu-latest
     steps:
       # Runs a set of commands using the runners shell
       - name: Run a one-line script
         run: |
-          echo Hello, "${{ secrets.ENV }}"
-          echo Hello, "${{ vars.VAR }}"
-
+          echo Hello
  
