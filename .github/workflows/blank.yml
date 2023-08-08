@@ -46,4 +46,4 @@ jobs:
       - name: Run a one-line script
         run: |
           echo Hello, ${{ secrets.ENV }} 
-          echo Hello, ${{ vars.ENV2 }}
+          echo Hello, ${{ vars.VAR }}
