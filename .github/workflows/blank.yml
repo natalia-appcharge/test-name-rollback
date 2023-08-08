@@ -13,15 +13,18 @@ on:
         type: boolean
         description: Rollback
         required: false
-      rollback_name:
-        description: Rollback
-        required: false
-        default: 'rollback'
       name:
         type: choice
         options: 
         - Deploy
         - Rollback
+      message:
+        required: true
+      use-emoji:
+        type: boolean
+        description: Include 🎉🤣 emojis
+      environment:
+        type: environment
 
         
 
