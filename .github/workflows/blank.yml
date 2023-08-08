@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 name: Deploy 
-run-name: deploy or ${{ inputs.rollback_name }}
+run-name: deploy or ${{ inputs.name }}
 
 # Controls when the workflow will run
 on:
@@ -17,6 +17,11 @@ on:
         description: Rollback
         required: false
         default: 'rollback'
+      name:
+        type: choice
+        options: 
+        - Deploy
+        - Rollback
 
         
 
