@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-name: Deploy MS 
+name: CI/CD MS 
 run-name: ${{ inputs.name }}
 
 # Controls when the workflow will run
@@ -17,11 +17,9 @@ on:
         type: choice
         options: 
         - Rollback
+        - Deploy
       environment:
         type: environment
-        
-
-        
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -36,7 +34,7 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, ${{ vars.ENV2 }}!
+        run: echo Hello, ${{ vars.ENV2 }} !
         
   rollback:
     name: My 2 job
@@ -46,4 +44,6 @@ jobs:
     steps:
       # Runs a set of commands using the runners shell
       - name: Run a one-line script
-        run: echo Hello, ${{ secrets.ENV }}!
+        run: |
+          echo Hello, ${{ secrets.ENV }} 
+          echo Hello, ${{ vars.ENV2 }}
