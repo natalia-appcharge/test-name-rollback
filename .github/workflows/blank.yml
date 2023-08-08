@@ -16,8 +16,8 @@ on:
       name:
         type: choice
         options: 
-        - Rollback
         - Deploy
+        - Rollback
       environment:
         type: environment
 
@@ -56,11 +56,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a one-line script
         if: ${{ vars.VAR == 'dev' }}
-        run: |
-          echo Hello, ${{ secrets.ENV }} 
-          echo Hello, ${{ vars.VAR }}
-      - name: Run a one-line script
-        if: ${{ secrets.ENV == 'dev' }}
         run: |
           echo Hello, ${{ secrets.ENV }} 
           echo Hello, ${{ vars.VAR }}
