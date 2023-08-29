@@ -50,7 +50,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a one-line script
         run: |
-          docker build --build-arg ENV=${{ vars.ENV}} 
+          docker build --build-arg ENV='${{ vars.ENV}}' --build-arg N=${{ vars.N}}
 
   # stage:
   #   if: ${{ inputs.environment == 'Stage' }}
