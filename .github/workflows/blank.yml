@@ -39,7 +39,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-          echo "variable from shell environment : ${{ vars.ENV_CONTEXT_VAR }} "
+          touch ${{ vars.ENV_CONTEXT_VAR }}
+          ls -la 
           
         
   rollback:
